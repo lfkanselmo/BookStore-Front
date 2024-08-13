@@ -1,0 +1,52 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #1e0035, #000000);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.logo {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.logo img {
+    width: 80px; /* Ajusta el tamaño del logo según tus necesidades */
+    height: auto;
+}
+
+.logo h1 {
+    color: #ffffff;
+    font-size: 36px;
+    margin: 10px 0 0;
+    font-family: 'Arial', sans-serif;
+}
+
+.start-button {
+    background-color: #800020; /* Vinotinto */
+    color: #ffffff; /* Blanco */
+    border: none;
+    padding: 15px 30px;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.start-button:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 5px rgba(128, 0, 32, 0.7);
+}

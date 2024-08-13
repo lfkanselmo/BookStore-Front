@@ -1,0 +1,29 @@
+import { NgModule } from '@angular/core';
+import { BrowserModule, provideClientHydration } from '@angular/platform-browser';
+
+import { AppRoutingModule,routingComponents} from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HeaderComponent } from './templates/header/header.component';
+import { FooterComponent } from './templates/footer/footer.component';
+import { WelcomeSiteComponent } from './views/welcome-site/welcome-site.component';
+
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent,
+    routingComponents,
+    WelcomeSiteComponent
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule
+  ],
+  providers: [
+    provideClientHydration()
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }
