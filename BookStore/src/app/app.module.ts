@@ -7,6 +7,9 @@ import { HeaderComponent } from './templates/header/header.component';
 import { FooterComponent } from './templates/footer/footer.component';
 import { WelcomeSiteComponent } from './views/welcome-site/welcome-site.component';
 
+import {ReactiveFormsModule, FormsModule} from '@angular/forms';
+import {HttpClientModule, provideHttpClient, withFetch} from '@angular/common/http';
+
 
 
 @NgModule({
@@ -19,7 +22,10 @@ import { WelcomeSiteComponent } from './views/welcome-site/welcome-site.componen
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule 
   ],
   providers: [
     provideClientHydration()

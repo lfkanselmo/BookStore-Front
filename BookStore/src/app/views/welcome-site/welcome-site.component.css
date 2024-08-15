@@ -25,8 +25,9 @@
 }
 
 .logo img {
-    width: 80px; /* Ajusta el tamaño del logo según tus necesidades */
+    width: 120px; /* Ajusta el tamaño del logo según tus necesidades */
     height: auto;
+    border-radius: 15%;
 }
 
 .logo h1 {

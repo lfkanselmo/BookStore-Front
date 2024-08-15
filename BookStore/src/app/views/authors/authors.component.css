@@ -20,7 +20,7 @@
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.dashboard-button {
+.authors-button {
     background-color: #800020; /* Vinotinto */
     color: #ffffff; /* Blanco */
     border: none;
@@ -30,7 +30,7 @@
     border-radius: 5px;
 }
 
-.dashboard-button:hover {
+.authors-button:hover {
     transform: scale(1.02);
     box-shadow: 0px 0px 10px 5px rgba(128, 0, 32, 0.7);
 }
