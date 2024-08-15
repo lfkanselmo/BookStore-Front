@@ -23,7 +23,8 @@ export class NewAuthorComponent {
   onSubmit(form: any){
     this.api.createAuthor(form).subscribe(
     response =>{
-      console.log(response);    },
+      console.log(response);    
+    },
     error => {
       console.log(error);
     });

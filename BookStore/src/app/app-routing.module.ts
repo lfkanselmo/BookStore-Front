@@ -12,9 +12,9 @@ const routes: Routes = [
   {path: 'welcomeSite', component: WelcomeSiteComponent},
   {path:'dashboard', component: DashboardComponent},
   {path:'authors', component: AuthorsComponent},
-  {path: 'showAuthor', component:ShowAuthorComponent},
-  {path: 'newAuthor', component:NewAuthorComponent},
-  {path: 'editAuthor', component:EditAuthorComponent}
+  {path: 'authors/showAuthor', component:ShowAuthorComponent},
+  {path: 'authors/newAuthor', component:NewAuthorComponent},
+  {path: 'authors/editAuthor', component:EditAuthorComponent}
 ];
 
 @NgModule({
