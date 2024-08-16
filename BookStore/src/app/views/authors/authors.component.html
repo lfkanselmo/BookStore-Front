@@ -1,7 +1,8 @@
-<app-header></app-header>
+<div class="container-page container-fluid">
+  <app-header></app-header>
 
 <div class="container">
-  <button mat-raised-button (click)="goBack()">Volver</button>
+  <button mat-raised-button class="btn btn-danger" (click)="goBack()">Volver</button>
     <h3>Lista de Autores</h3>
 
     <button type="button" class="btn btn-success" (click)="newAuthor()">Nuevo Autor</button>
@@ -48,3 +49,4 @@
 
 </div>
 <app-footer></app-footer>
+</div>

@@ -11,6 +11,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 })
 export class EditAuthorComponent implements OnInit {
 
+  createdSuccess: boolean = false;
+
   authorData: AuthorI | undefined;
 
   editForm = new FormGroup({
@@ -40,5 +42,18 @@ export class EditAuthorComponent implements OnInit {
     });
   }
 
+  goBack(){
+    this.router.navigate(['authors']);
+  }
+
+
+  savedAlert(){
+    this.createdSuccess = true;
+  }
+
+  successAlert(){
+    this.createdSuccess = false;
+    this.goBack();
+  }
 
 }
