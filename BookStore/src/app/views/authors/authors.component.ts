@@ -31,13 +31,17 @@ export class AuthorsComponent implements OnInit {
     this.router.navigate(["authors/newAuthor"]);
   }
 
-  deleteAuthor(){
-    this.api.deleteAuthor(this.idToDelete).subscribe(data =>{
-      console.log(data);
-    });
-    this.deleteConfirmationStatus = false;
-    location.reload();
-  }
+  async deleteAuthor() {
+    console.log(this.idToDelete);
+    try {
+        const data = await this.api.deleteAuthor(this.idToDelete).toPromise();
+        console.log(data);
+        this.deleteConfirmationStatus = false;
+        location.reload();
+    } catch (error) {
+        console.error('Error deleting author:', error);
+    }
+}
 
   showConfirmation(name:any,id:any){
     this.idToDelete = id;
