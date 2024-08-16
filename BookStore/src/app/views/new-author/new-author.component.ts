@@ -3,6 +3,7 @@ import { Component } from '@angular/core';
 import {FormGroup, FormControl, Validator, Validators} from '@angular/forms';
 import {ApiService} from '../../services/api/api.service';
 import {AuthorI} from '../../models/author.interface';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-new-author',
@@ -18,7 +19,9 @@ export class NewAuthorComponent {
     biography: new FormControl('')
   })
 
-  constructor(private api:ApiService){}
+  createdSuccess: boolean = false;
+
+  constructor(private api:ApiService, private router: Router){}
 
   onSubmit(form: any){
     this.api.createAuthor(form).subscribe(
@@ -28,6 +31,19 @@ export class NewAuthorComponent {
     error => {
       console.log(error);
     });
+  }
+
+  savedAlert(){
+    this.createdSuccess = true;
+  }
+
+  successAlert(form:FormGroup){
+    this.createdSuccess = false;
+    form.reset();
+  }
+
+  goBack(){
+    this.router.navigate(["authors/"]);
   }
 
 }

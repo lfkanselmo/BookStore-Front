@@ -1,1 +1,24 @@
-<p>edit-author works!</p>
+<app-header></app-header>
+
+<div class="container">
+
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
+        <div class="form-group">
+            <label for="">Nombre</label>
+            <input type="text" class="form-control" placeholder="Nombre del autor" formControlName="name">
+        </div>
+        <div class="form-group">
+            <label for="">Nacionalidad</label>
+            <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality">
+        </div>
+        <div class="form-group">
+            <label for="">Biografía</label>
+            <input type="text" class="form-control" placeholder="Biografía" formControlName="biography">
+        </div>
+
+        <button type="submit" class="btn btn-primary">Actualizar</button>
+    </form>
+
+</div>
+
+<app-footer></app-footer>

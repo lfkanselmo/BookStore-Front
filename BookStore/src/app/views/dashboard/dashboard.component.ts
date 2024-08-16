@@ -10,6 +10,7 @@ export class DashboardComponent {
 
   constructor(private router: Router){}
 
+
   navigateTo(route:any){
         this.router.navigate([route]);
   }
