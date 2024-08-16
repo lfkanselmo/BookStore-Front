@@ -40,6 +40,7 @@ export class NewAuthorComponent {
   successAlert(form:FormGroup){
     this.createdSuccess = false;
     form.reset();
+    this.goBack();
   }
 
   goBack(){
