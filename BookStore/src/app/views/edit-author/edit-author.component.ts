@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { AuthorI } from '../../models/author.interface';
 import { ApiService } from '../../services/api/api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-author',
@@ -38,7 +39,6 @@ export class EditAuthorComponent implements OnInit {
   onSubmit(form:any){
     let authorId = this.activeRoute.snapshot.paramMap.get('id');
     this.api.editAuthor(authorId,form).subscribe(data =>{
-      console.log(data);
     });
   }
 
@@ -47,13 +47,25 @@ export class EditAuthorComponent implements OnInit {
   }
 
 
-  savedAlert(){
-    this.createdSuccess = true;
-  }
-
-  successAlert(){
-    this.createdSuccess = false;
-    this.goBack();
+  showUpdateConfirmation(){
+    Swal.fire({
+      title: "Actualizar Autor",
+      text: "¿Está seguro de actualizar el autor?",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Actualizar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "¡Actualizado!",
+          text: "El autor fue actualizado",
+          icon: "success"
+        });
+        this.goBack();
+      }
+    });
   }
 
 }

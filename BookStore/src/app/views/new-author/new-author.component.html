@@ -18,24 +18,8 @@
         <label for="biography">Biografía:</label>
         <textarea class="form-control" id="biography" formControlName="biography"></textarea>
       </div>
-      <button type="submit" class="btn btn-primary new-author-button" (click)="savedAlert()">Crear</button>
+      <button type="submit" class="btn btn-primary new-author-button">Guardar</button>
     </form>
-  </div>
-
-  <div class="class" *ngIf="createdSuccess">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Creación autor</h5>
-        </div>
-        <div class="modal-body">
-          <p>Autor creado con éxito</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" (click)="successAlert(newAuthorForm)">Aceptar</button>
-        </div>
-      </div>
-    </div>
   </div>
 </div>
 

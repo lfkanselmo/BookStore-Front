@@ -22,29 +22,12 @@
         <td class="align-middle">{{author.nationality}}</td>
         <td class="align-middle">
           <span class="btn-edit btn" (click)="editAuthor(author.id)"> 📝 </span>
-          <span class="btn-delete btn" (click)="showConfirmation(author.name,author.id)"> ❌ </span>
+          <span class="btn-delete btn" (click)="showDeleteConfirmation(author.name,author.id)"> ❌ </span>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <div class="class" *ngIf="deleteConfirmationStatus">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Eliminar autor</h5>
-        </div>
-        <div class="modal-body">
-          <p>{{deleteConfirmationMsg}}</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-primary" (click)="deleteAuthor()">Eliminar</button>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal"
-            (click)="cancelDelete()">Cancelar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+</div> 
 
 <app-footer></app-footer>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../../services/api/api.service';
 import { authorListI } from '../../models/authorList.interface';
 import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-authors',
@@ -13,7 +14,7 @@ export class AuthorsComponent implements OnInit {
 
   deleteConfirmationStatus: boolean = false;
   deleteConfirmationMsg: any = "";
-  idToDelete:Number | undefined;
+  idToDelete: Number | undefined;
 
   constructor(private api: ApiService, private router: Router) { }
 
@@ -23,37 +24,51 @@ export class AuthorsComponent implements OnInit {
     })
   }
 
-  editAuthor(id:number){
+  editAuthor(id: number) {
     this.router.navigate(["authors/editAuthor", id]);
   }
 
-  newAuthor(){
+  newAuthor() {
     this.router.navigate(["authors/newAuthor"]);
   }
 
   async deleteAuthor() {
-    console.log(this.idToDelete);
     try {
-        const data = await this.api.deleteAuthor(this.idToDelete).toPromise();
-        console.log(data);
-        this.deleteConfirmationStatus = false;
-        location.reload();
+      const data = await this.api.deleteAuthor(this.idToDelete).toPromise();
+      this.deleteConfirmationStatus = false;
     } catch (error) {
-        console.error('Error deleting author:', error);
+      console.error('Error deleting author:', error);
     }
-}
+  }
 
-  showConfirmation(name:any,id:any){
+  showDeleteConfirmation(name: any, id: any) {
     this.idToDelete = id;
-    this.deleteConfirmationStatus = true;
-    this.deleteConfirmationMsg = "¿Desea eliminar al autor " + name + "?";
+
+    Swal.fire({
+      title: "Eliminar Autor",
+      text: `¿Desea eliminar el autor ${name}?`,
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Eliminar",
+      cancelButtonText: "Cancelar"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteAuthor();
+        Swal.fire({
+          title: "Eliminado!",
+          text: `Se eliminó el autor ${name}`,
+          icon: "success",
+          showConfirmButton: true
+        }).finally(() =>
+          location.reload()
+        );
+      }
+    });
   }
 
-  cancelDelete(){
-    this.deleteConfirmationStatus = false;
-  }
-
-  goBack(route:string){
+  goBack(route: string) {
     this.router.navigate([route]);
   }
 }

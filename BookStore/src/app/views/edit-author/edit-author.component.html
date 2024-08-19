@@ -20,26 +20,9 @@
         <input type="text" class="form-control" placeholder="Biografía" formControlName="biography">
       </div>
   
-      <button type="submit" class="btn btn-primary edit-author-button" (click)="savedAlert()">Actualizar</button>
+      <button type="submit" class="btn btn-primary edit-author-button" (click)="showUpdateConfirmation()">Actualizar</button>
     </form>
   </div>
-
-  <div class="class" *ngIf="createdSuccess">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Editar autor</h5>
-        </div>
-        <div class="modal-body">
-          <p>Autor editado con éxito</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-success" (click)="successAlert()">Aceptar</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
 
 </div>
 <app-footer></app-footer>

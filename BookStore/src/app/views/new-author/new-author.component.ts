@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
-import {FormGroup, FormControl, Validator, Validators} from '@angular/forms';
-import {ApiService} from '../../services/api/api.service';
-import {AuthorI} from '../../models/author.interface';
-import {Router} from '@angular/router';
+import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
+import { ApiService } from '../../services/api/api.service';
+import { AuthorI } from '../../models/author.interface';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-new-author',
@@ -14,36 +15,48 @@ import {Router} from '@angular/router';
 export class NewAuthorComponent {
 
   newAuthorForm = new FormGroup({
-    name: new FormControl('',Validators.required),
+    name: new FormControl('', Validators.required),
     nationality: new FormControl(''),
     biography: new FormControl('')
   })
 
   createdSuccess: boolean = false;
 
-  constructor(private api:ApiService, private router: Router){}
+  constructor(private api: ApiService, private router: Router) { }
 
-  onSubmit(form: any){
-    this.api.createAuthor(form).subscribe(
-    response =>{
-      console.log(response);    
-    },
-    error => {
-      console.log(error);
+  onSubmit(form: any) {
+
+    if (form.name) {
+      this.api.createAuthor(form).subscribe(
+        response => {
+          this.showCreateConfirmation(form);
+        },
+        error => {
+          console.log(error);
+        });
+    } else {
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: "El nombre del autor no puede estar vacío"
+      });
+    }
+  }
+
+  showCreateConfirmation(form: FormGroup) {
+    Swal.fire({
+      position: "center",
+      icon: "success",
+      title: "¡Autor creado!",
+      showConfirmButton: false,
+      timer: 1500
+    }).finally(() => {
+      form.reset;
+      this.goBack()
     });
   }
 
-  savedAlert(){
-    this.createdSuccess = true;
-  }
-
-  successAlert(form:FormGroup){
-    this.createdSuccess = false;
-    form.reset();
-    this.goBack();
-  }
-
-  goBack(){
+  goBack() {
     this.router.navigate(["authors/"]);
   }
 
