@@ -1,9 +1,18 @@
 footer {
     position: relative;
-    height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    padding-bottom: 10px;
+    text-align: center;
+    vertical-align: middle;
+    height: 70px;
     bottom: 0;
     width: 100%;
     background-color: black;
-    color: white;
+}
 
+span{
+    align-self: baseline;
+    color: white;
 }

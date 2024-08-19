@@ -1,44 +1,45 @@
-<div class="container-page">
-
+<app-header></app-header>
 
 <div class="container">
 
-    <button class="btn btn-danger" mat-raised-button (click)="goBack()">Volver</button>
+  <button class="btn back-button btn-danger" mat-raised-button (click)="goBack()">Volver</button>
+  <h2>Editar Autor</h2>
 
+  <div class="container-form">
     <form [formGroup]="editForm" (ngSubmit)="onSubmit(editForm.value)">
-        <div class="form-group">
-            <label for="">Nombre</label>
-            <input type="text" class="form-control" placeholder="Nombre del autor" formControlName="name">
-        </div>
-        <div class="form-group">
-            <label for="">Nacionalidad</label>
-            <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality">
-        </div>
-        <div class="form-group">
-            <label for="">Biografía</label>
-            <input type="text" class="form-control" placeholder="Biografía" formControlName="biography">
-        </div>
-
-        <button type="submit" class="btn btn-primary edit-author-button" (click)="savedAlert()">Actualizar</button>
+      <div class="form-group mt-3">
+        <label for="">Nombre</label>
+        <input type="text" class="form-control" placeholder="Nombre del autor" formControlName="name">
+      </div>
+      <div class="form-group mt-3">
+        <label for="">Nacionalidad</label>
+        <input type="text" class="form-control" placeholder="Nacionalidad" formControlName="nationality">
+      </div>
+      <div class="form-group mt-3">
+        <label for="">Biografía</label>
+        <input type="text" class="form-control" placeholder="Biografía" formControlName="biography">
+      </div>
+  
+      <button type="submit" class="btn btn-primary edit-author-button" (click)="savedAlert()">Actualizar</button>
     </form>
+  </div>
 
-    <div class="class" *ngIf="createdSuccess">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Editar autor</h5>
-            </div>
-            <div class="modal-body">
-              <p>Autor editado con éxito</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-success" (click)="successAlert()">Aceptar</button>
-            </div>
-          </div>
+  <div class="class" *ngIf="createdSuccess">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Editar autor</h5>
+        </div>
+        <div class="modal-body">
+          <p>Autor editado con éxito</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-success" (click)="successAlert()">Aceptar</button>
         </div>
       </div>
+    </div>
+  </div>
 
 
 </div>
-
-</div>
+<app-footer></app-footer>

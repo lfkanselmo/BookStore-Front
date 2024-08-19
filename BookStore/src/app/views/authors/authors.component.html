@@ -1,52 +1,50 @@
-<div class="container-page container-fluid">
-  <app-header></app-header>
+<app-header></app-header>
 
 <div class="container">
-  <button mat-raised-button class="btn btn-danger" (click)="goBack()">Volver</button>
-    <h3>Lista de Autores</h3>
+  <button mat-raised-button class="btn back-button btn-danger" (click)="goBack('dashboard')">Volver</button>
+  <h3>Lista de Autores</h3>
 
-    <button type="button" class="btn btn-success" (click)="newAuthor()">Nuevo Autor</button>
+  <button type="button" class="btn new-author-button btn-success" (click)="newAuthor()">Nuevo Autor</button>
 
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">ID</th>
-                <th scope="col">Nombre</th>
-                <th scope="col">Nacionalidad</th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let author of authors">
-                <th scope="row">{{author.id}}</th>
-                <td>{{author.name}}</td>
-                <td>{{author.nationality}}</td>
-                <td>
-                    <span class="btn-edit btn" (click)="editAuthor(author.id)"> 📝 </span>
-                    <span class="btn-delete btn" (click)="showConfirmation(author.name,author.id)"> ❌ </span>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Nacionalidad</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let author of authors">
+        <th class="align-middle" scope="row">{{author.id}}</th>
+        <td class="align-middle">{{author.name}}</td>
+        <td class="align-middle">{{author.nationality}}</td>
+        <td class="align-middle">
+          <span class="btn-edit btn" (click)="editAuthor(author.id)"> 📝 </span>
+          <span class="btn-delete btn" (click)="showConfirmation(author.name,author.id)"> ❌ </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 
-    <div class="class" *ngIf="deleteConfirmationStatus">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Eliminar autor</h5>
-            </div>
-            <div class="modal-body">
-              <p>{{deleteConfirmationMsg}}</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" (click)="deleteAuthor()">Eliminar</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancelDelete()">Cancelar</button>
-            </div>
-          </div>
+  <div class="class" *ngIf="deleteConfirmationStatus">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Eliminar autor</h5>
+        </div>
+        <div class="modal-body">
+          <p>{{deleteConfirmationMsg}}</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="deleteAuthor()">Eliminar</button>
+          <button type="button" class="btn btn-secondary" data-dismiss="modal"
+            (click)="cancelDelete()">Cancelar</button>
         </div>
       </div>
-
-
+    </div>
+  </div>
 </div>
+
 <app-footer></app-footer>
-</div>

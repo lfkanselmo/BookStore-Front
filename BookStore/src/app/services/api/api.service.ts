@@ -12,30 +12,32 @@ export class ApiService {
 
   url: string = "http://localhost:8000/";
 
+  endAuthors = "authors/";
+
   constructor(private http:HttpClient) { }
 
   createAuthor(data:AuthorI):Observable<ResponseI>{
-    let path = this.url + "authors/";
+    let path = this.url + this.endAuthors;
     return this.http.post<ResponseI>(path, data);
   }
 
   getAllAuthors():Observable<authorListI[]>{
-    let path = this.url + "authors/";
+    let path = this.url + this.endAuthors;
     return this.http.get<authorListI[]>(path);
   }
 
   getSingleAuthor(id: String | null):Observable<AuthorI>{
-    let path = this.url + "authors/" + id;
+    let path = this.url + this.endAuthors + id;
     return this.http.get<AuthorI>(path)
   }
 
   editAuthor(id: String | null, data:AuthorI):Observable<ResponseI>{
-    let path = this.url + "authors/" + id;
+    let path = this.url + this.endAuthors + id;
     return this.http.put<ResponseI>(path, data);
   }
 
   deleteAuthor(id: Number | undefined):Observable<ResponseI>{
-    let path = this.url + "authors/" + id;
+    let path = this.url + this.endAuthors + id;
     console.log(path);
     let Options = {
       headers: new HttpHeaders({

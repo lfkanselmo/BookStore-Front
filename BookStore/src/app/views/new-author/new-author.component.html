@@ -1,21 +1,26 @@
+<app-header></app-header>
+
 <div class="container">
-  <button mat-raised-button class="btn btn-danger" (click)="goBack()">Volver</button>
-  <h2>Create New Author</h2>
-  <form class="needs-validation" [formGroup]="newAuthorForm" (ngSubmit)="onSubmit(newAuthorForm.value)">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="name" formControlName="name" required>
-    </div>
-    <div class="form-group">
-      <label for="nationality">Nationality:</label>
-      <input type="text" class="form-control" id="nationality" formControlName="nationality">
-    </div>
-    <div class="form-group">
-      <label for="biography">Biography:</label>
-      <textarea class="form-control" id="biography" formControlName="biography"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary new-author-button" (click)="savedAlert()">Crear</button>
-  </form>
+  <button mat-raised-button class="btn back-button btn-danger" (click)="goBack()">Volver</button>
+  <h2>Nuevo Autor</h2>
+  
+  <div class="container-form">
+    <form class="needs-validation" [formGroup]="newAuthorForm" (ngSubmit)="onSubmit(newAuthorForm.value)">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="nationality">Nacionalidad:</label>
+        <input type="text" class="form-control" id="nationality" formControlName="nationality">
+      </div>
+      <div class="form-group">
+        <label for="biography">Biografía:</label>
+        <textarea class="form-control" id="biography" formControlName="biography"></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary new-author-button" (click)="savedAlert()">Crear</button>
+    </form>
+  </div>
 
   <div class="class" *ngIf="createdSuccess">
     <div class="modal-dialog" role="document">
@@ -33,3 +38,5 @@
     </div>
   </div>
 </div>
+
+<app-footer></app-footer>

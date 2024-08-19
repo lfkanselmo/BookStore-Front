@@ -53,7 +53,7 @@ export class AuthorsComponent implements OnInit {
     this.deleteConfirmationStatus = false;
   }
 
-  goBack(){
-    this.router.navigate(["dashboard"]);
+  goBack(route:string){
+    this.router.navigate([route]);
   }
 }
