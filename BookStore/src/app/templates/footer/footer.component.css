@@ -1,18 +1,25 @@
+/* Estilos para el footer */
 footer {
-    position: relative;
     display: flex;
-    flex-direction: column;
-    justify-content: end;
-    padding-bottom: 10px;
-    text-align: center;
-    vertical-align: middle;
-    height: 70px;
-    bottom: 0;
+    align-items: center;
+    justify-content: center;
+    height: 10vh;
     width: 100%;
-    background-color: black;
-}
-
-span{
-    align-self: baseline;
+    background: black;
+    position: static;
+    bottom: 0;
+  }
+  
+  /* Estilos para el contenedor dentro del footer */
+  footer .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Estilos para el texto dentro del footer */
+  footer span {
     color: white;
-}
+    font-size: 18px;
+    font-weight: bold;
+  }

@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 
 import { FormGroup, FormControl, Validator, Validators } from '@angular/forms';
-import { ApiService } from '../../services/api/api.service';
-import { AuthorI } from '../../models/author.interface';
+import { AuthorsService } from '../../../services/authors/authors-api.service';
+import { AuthorI } from '../../../models/authors/author.interface';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 
@@ -22,7 +22,7 @@ export class NewAuthorComponent {
 
   createdSuccess: boolean = false;
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: AuthorsService, private router: Router) { }
 
   onSubmit(form: any) {
 

@@ -1,6 +1,6 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container-main">
   <button mat-raised-button class="btn back-button btn-danger" (click)="goBack('dashboard')">Volver</button>
   <h3>Lista de Autores</h3>
 
@@ -15,7 +15,7 @@
         <th scope="col"></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="table-body">
       <tr *ngFor="let author of authors">
         <th class="align-middle" scope="row">{{author.id}}</th>
         <td class="align-middle">{{author.name}}</td>
@@ -28,6 +28,6 @@
     </tbody>
   </table>
 
-</div> 
+</div>
 
 <app-footer></app-footer>

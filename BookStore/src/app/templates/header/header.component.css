@@ -1,11 +1,18 @@
-.navbar-text{
-    color: white !important;
-    font-size: 40px;
+header {
+    background-color: black;
 }
 
-.logo{
-    width: 50px;
-    height: auto;
+.navbar {
+    background-color: black;
+}
+
+.logo {
+    height: 50px;
     border-radius: 15%;
-    margin-right: 10px;
+}
+
+.navbar-text {
+    color: white;
+    font-size: 1.25rem;
+    margin-left: 10px;
 }
