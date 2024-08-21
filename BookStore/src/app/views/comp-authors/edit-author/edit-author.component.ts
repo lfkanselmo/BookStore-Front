@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AuthorI } from '../../models/author.interface';
-import { ApiService } from '../../services/api/api.service';
+import { AuthorI } from '../../../models/authors/author.interface';
+import { AuthorsService } from '../../../services/authors/authors-api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import Swal from 'sweetalert2';
 
@@ -12,8 +12,6 @@ import Swal from 'sweetalert2';
 })
 export class EditAuthorComponent implements OnInit {
 
-  createdSuccess: boolean = false;
-
   authorData: AuthorI | undefined;
 
   editForm = new FormGroup({
@@ -22,7 +20,7 @@ export class EditAuthorComponent implements OnInit {
     biography: new FormControl('')
   });
 
-  constructor(private router: Router, private activeRoute: ActivatedRoute, private api: ApiService) { }
+  constructor(private router: Router, private activeRoute: ActivatedRoute, private api: AuthorsService) { }
 
   ngOnInit(): void {
     let authorId = this.activeRoute.snapshot.paramMap.get('id');

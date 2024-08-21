@@ -1,0 +1,34 @@
+<app-header></app-header>
+<div class="container-main">
+  <button mat-raised-button class="btn back-button btn-danger" (click)="goBack('dashboard')">Volver</button>
+  <h3>Lista de Editoriales</h3>
+
+  <button type="button" class="btn new-editorial-button btn-success" (click)="newEditorial()">Nueva Editorial</button>
+
+  <div class="table-container">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Ciudad</th>
+          <th scope="col">País</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody class="table-body">
+        <tr *ngFor="let editorial of editorials">
+          <th class="align-middle" scope="row">{{editorial.id}}</th>
+          <td class="align-middle">{{editorial.name}}</td>
+          <td class="align-middle">{{editorial.address}}</td>
+          <td class="align-middle">{{editorial.country}}</td>
+          <td class="align-middle">
+            <span class="btn-edit btn" (click)="editEditorial(editorial.id)"> 📝 </span>
+            <span class="btn-delete btn" (click)="showDeleteConfirmation(editorial.name,editorial.id)"> ❌ </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>

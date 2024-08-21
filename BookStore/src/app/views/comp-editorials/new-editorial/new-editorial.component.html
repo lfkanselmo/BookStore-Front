@@ -1,0 +1,26 @@
+<app-header></app-header>
+
+<div class="container-main">
+  <button mat-raised-button class="btn back-button btn-danger" (click)="goBack()">Volver</button>
+  <h2>Nueva Editorial</h2>
+  
+  <div class="container-form">
+    <form class="needs-validation" [formGroup]="newEditorialForm" (ngSubmit)="onSubmit(newEditorialForm.value)">
+      <div class="form-group">
+        <label for="name">Nombre:</label>
+        <input type="text" class="form-control" id="name" formControlName="name" required>
+      </div>
+      <div class="form-group">
+        <label for="nationality">Ciudad:</label>
+        <input type="text" class="form-control" id="address" formControlName="address">
+      </div>
+      <div class="form-group">
+        <label for="biography">País:</label>
+        <input type="text" class="form-control" id="country" formControlName="country">
+      </div>
+      <button type="submit" class="btn btn-primary new-editorial-button">Guardar</button>
+    </form>
+  </div>
+</div>
+
+<app-footer></app-footer>
